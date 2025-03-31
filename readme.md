@@ -8,9 +8,9 @@
 - 🎵 **Audio FFT Visualizer**
 - 📊 **Real-time System Load Metrics** (CPU, Memory, Network)
 - 🎭 **Built-in Gimmicks** (Pac-Man, Ghost, Smiley)
-- 🎛️ **Smooth animations, automatic & manual switching modes**
+- 🎛️ **Smooth animations, automatic & manual mode switching**
 - 📝 **FX Scripting Engine with live console**
-- 
+  
 ## Quickstart
 
 ### Installation
@@ -19,9 +19,6 @@ git clone https://github.com/ematkkona/lpfx.git
 cd lpfx
 pip install mido numpy sounddevice psutil
 ```
-
-### Running
-
 #### Interactive shell:
 ```bash
 python main.py --live
@@ -30,9 +27,8 @@ python main.py --live
 ```bash
 python main.py --script example.fx
 ```
-### Testing
+#### Testing
 Run tests using pytest:
-
 ```bash
 pip install pytest
 pytest tests/
