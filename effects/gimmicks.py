@@ -1,5 +1,5 @@
 import random
-from charset import CHARSET
+from lpfx.charset import CHARSET
 
 def render_sprite(controller, pattern, duration=1.5, color=127):
     import time

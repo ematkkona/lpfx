@@ -1,5 +1,5 @@
 import time
-from charset import CHARSET
+from lpfx.charset import CHARSET
 
 def scroll_text(controller, text="LAUNCHPAD!", color=127, speed=0.1):
     display = [0] * 8

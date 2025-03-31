@@ -1,10 +1,10 @@
 import time
 import random
-from effects.animations import wave_effect, sweep_effect
-from effects.scroll import scroll_text
-from effects.gimmicks import show_random_gimmick
-from effects.audio import audio_effect
-from effects.system import system_effect
+from lpfx.effects.animations import wave_effect, sweep_effect
+from lpfx.effects.scroll import scroll_text
+from lpfx.effects.gimmicks import show_random_gimmick
+from lpfx.effects.audio import audio_effect
+from lpfx.effects.system import system_effect
 
 class ScriptRunner:
     def __init__(self, controller):
