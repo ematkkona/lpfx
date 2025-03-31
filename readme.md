@@ -1,16 +1,16 @@
 # Launchpad FX 🎛️
 
-**Interactive, scriptable, audio-reactive Novation Launchpad (MK1) -FX Engine.**
+**Interactive, scriptable, audio-reactive FX engine for Novation Launchpad (MK1)**
 
 ## Features
 
-- 🌊 **Smooth Animations** (waves, sweeps, sparkles)
+- 🌊 **Text scroller**
 - 🎵 **Audio FFT Visualizer**
 - 📊 **Real-time System Load Metrics** (CPU, Memory, Network)
 - 🎭 **Built-in Gimmicks** (Pac-Man, Ghost, Smiley)
-- 📝 **FX Scripting Engine**
-- 🎛️ **Live Interactive Shell**
-
+- 🎛️ **Smooth animations, automatic & manual switching modes**
+- 📝 **FX Scripting Engine with live console**
+- 
 ## Quickstart
 
 ### Installation
