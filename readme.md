@@ -15,24 +15,28 @@
 
 ### Installation
 ```bash
+git clone https://github.com/ematkkona/lpfx.git
+cd lpfx
 pip install mido numpy sounddevice psutil
+```
+
 ### Running
 
 #### Interactive shell:
 ```bash
 python main.py --live
-
+```
 #### Run an FX script:
 ```bash
 python main.py --script example.fx
-
+```
 ### Testing
 Run tests using pytest:
 
 ```bash
 pip install pytest
 pytest tests/
-
+```
 
 ## License
 MIT © 2025 Eetu Mäkinen
