@@ -1,7 +1,7 @@
 import time
 import math
 from random import choice
-from controller import COLOR_RAINBOW
+from lpfx.constants import COLOR_RAINBOW
 
 def wave_effect(controller, direction="horizontal", speed=0.1, duration=5):
     start = time.time()

@@ -1,10 +1,8 @@
+import threading
+import queue
 import mido
 import time
-import queue
-import threading
-from charset import CHARSET
-from effects.gimmicks import show_random_gimmick
-from effects.animations import wave_effect, sweep_effect
+from lpfx.input.buttons import listen_buttons
 
 class LaunchpadController:
     def __init__(self):
@@ -14,28 +12,19 @@ class LaunchpadController:
         self.midi_queue = queue.Queue()
         self.running = True
         self.current_effect = "scroll"
+
         threading.Thread(target=self.midi_sender, daemon=True).start()
+
         time.sleep(0.5)
         timeout = time.time() + 1
         while time.time() < timeout and self.inport.poll():
             self.inport.receive()
-        threading.Thread(target=self.listen_buttons, daemon=True).start()
 
-    def send_note(self, note, velocity):
-        self.outport.send(mido.Message("note_on", note=note, velocity=velocity))
+        # ✅ Correct position here (INSIDE the __init__)
+        threading.Thread(target=listen_buttons, args=(self,), daemon=True).start()
 
     def midi_sender(self):
         while self.running:
-            effect = self.current_effect or "gimmick"
-            if effect == "gimmick":
-                show_random_gimmick(self)
-            elif effect == "wave":
-                wave_effect(self, direction="horizontal")
-            elif effect == "sweep":
-                sweep_effect(self, direction="left")
-            else:
-                show_random_gimmick(self)
-
             try:
                 msg = self.midi_queue.get(timeout=0.01)
                 self.outport.send(msg)
@@ -46,26 +35,17 @@ class LaunchpadController:
         for note in range(128):
             self.send_note(note, 0)
 
-    from input.buttons import listen_buttons
-    threading.Thread(target=listen_buttons, args=(self,), daemon=True).start()  # to be implemented in input/buttons.py
+    def send_note(self, note, velocity):
+        self.outport.send(mido.Message("note_on", note=note, velocity=velocity))
 
     def run_loop(self):
         print("Running main loop. Press Ctrl+C to stop.")
         try:
             while self.running:
-            effect = self.current_effect or "gimmick"
-            if effect == "gimmick":
-                show_random_gimmick(self)
-            elif effect == "wave":
-                wave_effect(self, direction="horizontal")
-            elif effect == "sweep":
-                sweep_effect(self, direction="left")
-            else:
-                show_random_gimmick(self)
-
-                show_random_gimmick(self)
-                time.sleep(3)
+                # Your loop logic here (simplified)
+                time.sleep(0.5)
         except KeyboardInterrupt:
             self.running = False
             self.clear_grid()
             print("Stopped.")
+

@@ -1,6 +1,6 @@
 import psutil
 import time
-from controller import COLOR_CPU, COLOR_MEM, COLOR_NET
+from lpfx.constants import COLOR_CPU, COLOR_MEM, COLOR_NET
 
 def system_effect(controller):
     while controller.running and controller.current_effect == "system":

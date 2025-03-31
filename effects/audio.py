@@ -1,7 +1,7 @@
 import numpy as np
 import sounddevice as sd
 import time
-from controller import COLOR_RAINBOW
+from lpfx.constants import COLOR_RAINBOW
 
 def audio_effect(controller):
     def callback(indata, frames, time_info, status):
